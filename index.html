@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/000/691/497/original/rock-paper-scissors-neon-icons-vector.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<script>
+
+const choices = ["rock", "paper", "scissors"];
+let compScore = 0;
+let playerScore = 0;
+
+function getComputerChoice(){
+    let randomNum = Math.floor(Math.random() * 3);
+    console.log(randomNum);
+    return choices[randomNum];
+}
+
+function getPlayerChoice(){
+    let playerChoice = prompt("Please choose one: rock, paper, or scissors.").toLowerCase();
+    while(playerChoice != "rock" && playerChoice != "scissors" && playerChoice != "paper"){
+        alert("You did not enter a valid option!");
+        playerChoice = prompt("Please choose one of the following options: rock, paper, or scissors.").toLowerCase();
+    } 
+    return playerChoice;
+}
+
+function playRound(user, comp){
+    console.log(`User choice: ${user}, Computer choice: ${comp}`);
+    switch(true) {
+        case user === "rock" && comp === "scissors":
+            playerScore++;
+            alert("You win! Rock beats scissors!");
+            break;
+        case user === "rock" && comp === "paper":
+            compScore++;
+            alert("You lose! Paper beats rock!"); 
+            break;
+        case user === "paper" && comp === "scissors":
+            compScore++;
+            alert("You lose! Scissors beats paper!");
+            break;
+        case user === "paper" && comp === "rock":
+            playerScore++;
+            alert("You win! Paper beats rock!");
+            break;
+        case user === "scissors" && comp === "paper":
+            playerScore++;
+            alert("You win! Scissors beats paper!");
+            break;
+        case user === "scissors" && comp === "rock":
+            compScore++;
+            alert("You lose! Rock beats scissors!");
+            break;
+        case user === comp:
+            alert("Tie game! Both picked " + user + "!");
+            break;
+    }
+
+}
+
+function playGame(){
+    playerScore = 0;
+    compScore = 0;
+    for(let i = 1; i <= 5; i++){
+        playRound(getPlayerChoice(), getComputerChoice());
+    }
+    if(playerScore > compScore){
+        alert(`You win! Score: ${playerScore} to ${compScore}`);
+    } else if(compScore > playerScore){
+        alert(`You lose! Score: ${compScore} to ${playerScore}`);
+    } else {
+        alert("It was a tie!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
