@@ -5,24 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <h1>Rock, Paper, Scissors</h1>
-<h4>Enter your choice:</h4>
+<h2>Enter your choice:</h4>
 <button id="rock">Rock</button>
 <button id="paper">Paper</button>
 <button id="scissors">Scissors</button>
 
 <div id="resultsDiv">
-    <h2>Results:</h2>
+    <div id="left">
+        <h3>Player:</h3>
+        <img id="playerPic" src="black.webp">
+    </div>
+    <div id="middle">
+        <div id="resultsHeader">
+            <h2>Results:</h2>
+        </div>
+        <div id="scoresDiv">
+            <h2>Score:</h2>
+            <h3 id="pscore">Player: </h3>
+            <h3 id="cscore">Computer: </h3>
+        </div>
+    </div>
+    <div id="right">
+        <h3>Computer:</h3>
+        <img id="compPic" src="black.webp">
+    </div>
 </div>
 
-<div id="scoresDiv">
-    <h2>Score:</h2>
-    <h3 id="pscore">Player: </h3>
-    <h3 id="cscore">Computer: </h3>
-</div>
+
 
 
 <script src="scripts.js"></script>
